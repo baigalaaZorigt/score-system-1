@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Scoring AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💳 Loan Scoring AI</h1>
+
+    <form action="/predict" method="POST">
+
+        <label>Сарын орлого</label>
+        <input type="number" name="salary" required>
+
+        <label>Ажил эрхлэлт</label>
+        <select name="employment" required>
+            <option value="Хувийн салбар">Хувийн салбар</option>
+            <option value="Төрийн алба">Төрийн алба</option>
+            <option value="Хувиараа">Хувиараа</option>
+        </select>
+
+        <label>Ажилласан жил</label>
+        <input type="number" step="0.1" name="experience" required>
+
+        <label>Хүссэн зээлийн хэмжээ</label>
+        <input type="number" name="amount" required>
+
+        <button type="submit">Шалгах</button>
+    </form>
+
+    {% if score is defined %}
+
+    <div class="result">
+        <h2>{{ score }}</h2>
+        <h3 style="color: {{ color }}">{{ decision }}</h3>
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

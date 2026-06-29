@@ -1,0 +1,4 @@
+Flask==3.0.3
+numpy
+scikit-learn==1.6.1
+joblib==1.4.2   
